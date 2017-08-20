@@ -12,9 +12,12 @@ def dashboard(request):
         return redirect('/')
 
     context ={
-        'users': User.objects.all().order_by("gold"),
         'top5': [
-            User.objects.order_by("-gold")[:5],
+            User.objects.all().order_by("-gold")[0],
+            User.objects.all().order_by("-gold")[1],
+            User.objects.all().order_by("-gold")[2],
+            User.objects.all().order_by("-gold")[3],
+            User.objects.all().order_by("-gold")[4],
             ]
         }
     return render(request, 'dashboard/dashboard.html', context)
